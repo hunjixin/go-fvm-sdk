@@ -1,4 +1,5 @@
-#/bin/bash.
+#!/bin/bash
+set -e
 
 root_dir=$1
 echo ${root_dir}
