@@ -28,17 +28,11 @@ jobs:
           rust-version: nightly
 
       - name: install deps
-        env:
-          GOPROXY: "https://proxy.golang.org,direct"
-          GO111MODULE: "on"
         run: |
           sudo apt-get update
           sudo apt-get -o Acquire::Retries=3 install make ftp git bzr curl wget -y && sudo apt upgrade -y
 
       - name: Build
-        env:
-          GOPROXY: "https://proxy.golang.org,direct"
-          GO111MODULE: "on"
         run: |
           make build
 
