@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - main
   pull_request:
     branches:
       - '**'
@@ -26,6 +25,7 @@ jobs:
         uses: ATiltedTree/setup-rust@v1
         with:
           rust-version: nightly
+          targets: wasm32-unknown-unknown
 
       - name: install deps
         run: |
