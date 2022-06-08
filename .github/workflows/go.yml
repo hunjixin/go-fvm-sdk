@@ -38,8 +38,9 @@ jobs:
 
       - name: install tinygo
         run: |
-          curl -sSfL https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/tinygo-linux-ubuntu-20.04
+          wget https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/tinygo-linux-ubuntu-20.04
           mv tinygo-linux-ubuntu-20.04 bin/tinygo
+          chmod 777 bin/tinygo
           export PATH=$PATH:${{ github.workspace }}/bin
 
       - name: Lint
