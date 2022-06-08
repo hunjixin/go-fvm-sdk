@@ -38,11 +38,11 @@ jobs:
 
       - name: install tinygo
         run: |
-          wget https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/tinygo-linux-ubuntu-20.04
+          wget -q https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/tinygo-linux-ubuntu-20.04
           mv tinygo-linux-ubuntu-20.04 bin/tinygo
           chmod 777 bin/tinygo
-          export PATH=$PATH:${{ github.workspace }}/bin
-
+          export PATH=$PATH:${{github.workspace}}/bin
+          tinygo version
       - name: Lint
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.44.2
