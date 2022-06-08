@@ -65,7 +65,7 @@ jobs:
           golangci-lint run --timeout 10m
 
       - name: Test
-        run: ｜
+        run: |
           export PATH=$PATH:${{github.workspace}}/bin
           tinygo version
           make test
