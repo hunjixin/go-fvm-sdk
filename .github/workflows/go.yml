@@ -23,7 +23,7 @@ jobs:
       - name: Setup Rust
         uses: ATiltedTree/setup-rust@v1
         with:
-          rust-version: stable
+          rust-version: nightly
 
       - name: install deps
         env:
