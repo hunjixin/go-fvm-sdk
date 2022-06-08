@@ -67,6 +67,7 @@ jobs:
       - name: Test
         run: |
           export PATH=$PATH:${{github.workspace}}/bin
+          export TINYGOROOT={{github.workspace}}
           go env
           tinygo version
           tinygo env
