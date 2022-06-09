@@ -67,7 +67,7 @@ jobs:
       - name: Test
         run: |
           export PATH=$PATH:${{github.workspace}}/bin
-          export TINYGOROOT={{github.workspace}}
+          export TINYGO=$PATH:`go env var GOROOT|grep go`
           go env
           tinygo version
           tinygo env
