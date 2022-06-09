@@ -9,7 +9,7 @@ func main() {} //nolint
 
 //go:export invoke
 func Invoke(_ uint32) uint32 { //nolint
-	method_num, err := sdk.MethodNumber()
+	method_ num, err := sdk.MethodNumber()
 	if err != nil {
 		sdk.Abort(ferrors.USR_ILLEGAL_STATE, "unable to get method number")
 	}
