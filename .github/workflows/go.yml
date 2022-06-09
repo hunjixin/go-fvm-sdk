@@ -49,9 +49,8 @@ jobs:
       - name: install tinygo
         run: |
           wget -q https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/ubuntu_20.04_linux.tar.gz
-          mkdir bin
-          tar -xvf ubuntu_20.04_linux.tar.gz -C /usr/local
-          chmod 777 /usr/local/tinygo/bin/*
+          sudo tar -xvf ubuntu_20.04_linux.tar.gz -C /usr/local
+          sudo chmod 777 /usr/local/tinygo/bin/*
           export PATH=$PATH:/usr/local/tinygo/bin
           tinygo version
           tinygo build -target wasi -no-debug -panic trap -o abort.wasm ./sdk/cases/abort.go
