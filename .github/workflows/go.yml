@@ -48,11 +48,11 @@ jobs:
 
       - name: install tinygo
         run: |
-          wget -q https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/tinygo-linux-ubuntu-20.04
+          wget -q https://github.com/ipfs-force-community/tinygo/releases/download/fvm%400.0.1/ubuntu_20.04_linux.tar.gz
           mkdir bin
-          mv tinygo-linux-ubuntu-20.04 bin/tinygo
-          chmod 777 bin/tinygo
-          export PATH=$PATH:${{github.workspace}}/bin
+          tar -xvf ubuntu_20.04_linux.tar.gz /usr/local
+          chmod 777 /usr/local/tinygo/bin/*
+          export PATH=$PATH:/usr/local/tinygo/bin
           tinygo version
 
       - name: Build
@@ -66,11 +66,7 @@ jobs:
 
       - name: Test
         run: |
-          export PATH=$PATH:${{github.workspace}}/bin
-          export TINYGOROOT=`go env var GOROOT|grep go`
-          echo $TINYGOROOT
-          go env
+          export PATH=$PATH:/usr/local/tinygo/bin
           tinygo version
           tinygo env
-          go env
           make test
