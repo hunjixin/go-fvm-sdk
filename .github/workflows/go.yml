@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: dependencies
+        run: sudo apt update && sudo apt install -y
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
